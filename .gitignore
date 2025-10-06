@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (too large for git)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Outputs (models and results)
+outputs/*/models/*
+outputs/*/logs/*
+outputs/*/fisher_matrices/*
+!outputs/*/.gitkeep
+
+# Keep only final results
+!outputs/phase4_experiments/results/*.csv
+!outputs/phase4_experiments/figures/*.png
+
+# Weights & Biases
+wandb/
+
+# Temporary files
+*.log
+*.tmp
+.cache/
