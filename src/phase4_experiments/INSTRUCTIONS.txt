@@ -1,0 +1,40 @@
+PHASE 4 EXPERIMENT FRAMEWORK
+=============================
+
+Owner: SARGHI
+
+Purpose: Run all methods and generate comparison results
+
+Files to create:
+- run_experiments.py    : Main experiment runner
+- config.py             : Configuration management
+- compare_results.py    : Load all results and create comparisons
+
+What this code should do:
+1. Load all methods (Phase 1, 2, 3 + Aniket's Fisher-LoRA)
+2. Run each method with same settings
+3. Collect all results
+4. Generate comparison tables
+5. Create plots (calibration, forgetting, etc.)
+6. Run statistical significance tests
+
+Experiment workflow:
+for method in [standard_lora, ewc_lora, i_lora, fisher_lora]:
+    train(method)
+    evaluate(method)
+    save_results(method)
+compare_all_results()
+generate_plots()
+
+Dependencies:
+- src/phase2_fisher_lora/ (Aniket's code)
+- src/phase3_baselines/ (your baselines)
+- src/utils/ (metrics, visualization)
+
+Output format:
+- outputs/phase4_experiments/results/all_methods_comparison.csv
+- outputs/phase4_experiments/figures/*.png
+- outputs/phase4_experiments/tables/*.tex
+
+Next step:
+- Results used by Charan for paper/presentation

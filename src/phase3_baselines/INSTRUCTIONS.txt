@@ -1,0 +1,35 @@
+PHASE 3 BASELINE IMPLEMENTATIONS
+=================================
+
+Owner: SARGHI
+
+Purpose: Implement comparison baseline methods
+
+Files to create:
+- standard_lora.py  : Standard LoRA (copy from phase1)
+- ewc_lora.py       : Elastic Weight Consolidation + LoRA
+- i_lora.py         : Interpolation-based LoRA
+- cur_lora.py       : CUR decomposition LoRA (optional)
+
+What this code should do:
+1. Implement each baseline method
+2. Use SAME training setup as Fisher-LoRA (fair comparison)
+3. Train on same cardiology data
+4. Evaluate on same test sets
+5. Save results in standard format
+
+Each baseline should have:
+- Same interface (train(), evaluate())
+- Same input/output format
+- Comparable training time
+
+Dependencies:
+- src/phase1_baseline/ (use as template)
+- src/utils/ (shared utilities)
+
+Output format:
+Each method saves to: outputs/phase3_baselines/{method_name}/results.json
+
+
+Next step:
+- Use these in Phase 4 to compare against Fisher-LoRA

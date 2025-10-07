@@ -1,0 +1,29 @@
+PHASE 1 BASELINE CODE
+=====================
+
+Owner: ANIKET
+
+Purpose: Implement basic LoRA baseline (no Fisher, no special constraints)
+
+Files to create:
+- train_baseline.py : Main training script
+- model.py          : Basic LoRA model wrapper
+- evaluate.py       : Evaluation functions
+
+What this code should do:
+1. Load medical model (BioGPT or similar)
+2. Add standard LoRA adapters
+3. Train on cardiology data
+4. Evaluate on general medicine + cardiology
+5. Save results in outputs/phase1_baseline/
+
+Dependencies:
+- src/utils/data_loader.py (shared)
+- src/utils/metrics.py (shared)
+
+Output format:
+Save results as JSON: outputs/phase1_baseline/results/baseline_results.json
+
+
+Next step:
+- After completion, Sarghi tests this code

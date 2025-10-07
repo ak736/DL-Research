@@ -1,0 +1,21 @@
+DATA FOLDER
+===========
+
+Purpose: Store all datasets used in the project
+
+Responsibility: ALL team members (shared)
+
+Structure:
+- raw/          : Original downloaded datasets (don't modify these)
+- processed/    : Cleaned/preprocessed data ready for training
+
+What to put here:
+- MedQA dataset
+- PubMedQA dataset  
+- Cardiology-specific QA data
+- Train/test splits
+
+Notes:
+- Large files are gitignored
+- Document your preprocessing steps
+- Keep raw data unchanged

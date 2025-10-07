@@ -1,0 +1,36 @@
+PHASE 2 FISHER-GUIDED LORA CODE
+================================
+
+Owner: ANIKET
+
+Purpose: Implement Fisher-Guided LoRA (core contribution)
+
+Files to create:
+- fisher_computation.py     : Calculate Fisher Information Matrix
+- fisher_lora.py           : Main Fisher-Guided LoRA class
+- train_fisher_lora.py     : Training script with Fisher constraints
+
+What this code should do:
+1. Compute Fisher Information on general medical data
+2. Apply Fisher-weighted regularization during training
+3. Add Brier score for calibration
+4. Train on cardiology data with constraints
+5. Save results + Fisher matrices
+
+Key components:
+- Fisher matrix calculation (diagonal approximation)
+- Joint loss: L_cardiology + λ·L_Fisher + β·L_Brier
+- Hyperparameters: lambda (Fisher weight), beta (Brier weight)
+
+Dependencies:
+- src/phase1_baseline/ (builds on top of baseline)
+- src/utils/ (shared utilities)
+
+Output format:
+- outputs/phase2_fisher_lora/fisher_matrices/fisher_A.pt
+- outputs/phase2_fisher_lora/fisher_matrices/fisher_B.pt
+- outputs/phase2_fisher_lora/results/fisher_lora_results.json
+
+
+Next step:
+- Sarghi imports this code in Phase 3/4 experiments

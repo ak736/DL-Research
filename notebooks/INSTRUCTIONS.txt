@@ -1,0 +1,29 @@
+ANALYSIS NOTEBOOKS
+==================
+
+Owner: CHARAN (primary), ALL (contribute)
+
+Purpose: Exploratory analysis and result visualization
+
+Notebooks to create:
+- 01_data_exploration.ipynb      : Explore datasets
+- 02_baseline_analysis.ipynb     : Analyze Phase 1 results
+- 03_fisher_lora_analysis.ipynb  : Analyze Phase 2 results
+- 04_final_results.ipynb         : Compare all methods
+
+What notebooks should contain:
+- Load data/results from outputs/
+- Create visualizations
+- Statistical analysis
+- Interpretation of results
+
+Format:
+- Clear markdown explanations
+- Well-commented code
+- Professional plots
+- Save figures to outputs/phase4_experiments/figures/
+
+
+Output:
+- Figures used in paper/presentation
+- Analysis supporting discussion section

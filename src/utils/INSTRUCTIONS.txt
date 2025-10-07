@@ -1,0 +1,31 @@
+SHARED UTILITIES
+================
+
+Owner: ALL (shared code)
+
+Purpose: Common functions used across all phases
+
+Files to create:
+- data_loader.py      : Dataset loading functions
+- metrics.py          : Evaluation metrics (accuracy, ECE, Brier)
+- visualization.py    : Plotting functions
+- config.py           : Configuration helpers
+
+What goes here:
+- Functions used by multiple phases
+- Standard evaluation metrics
+- Data preprocessing
+- Common plotting code
+
+Guidelines:
+- Keep functions general and reusable
+- Document all functions clearly
+- Add unit tests if time permits
+- Don't put phase-specific code here
+
+Used by:
+- All team members
+
+When:
+- Week 1-2: Basic utilities
+- Add more as needed throughout project

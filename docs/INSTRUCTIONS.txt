@@ -1,0 +1,36 @@
+DOCUMENTATION
+=============
+
+Owner: CHARAN (primary), ALL (contribute)
+
+Purpose: Project documentation and progress tracking
+
+Files to create:
+- progress_log.md    : Weekly progress updates
+- meeting_notes.md   : Notes from team meetings
+- phase1_report.md   : Summary of Phase 1 results
+- phase2_report.md   : Summary of Phase 2 results
+- final_report.md    : Complete project report
+
+What to document:
+- What was done each week
+- Problems encountered and solutions
+- Key decisions made
+- Results and observations
+
+Format:
+- Use markdown for easy reading
+- Include dates
+- Link to relevant code/results
+
+Progress log format:
+## Week X (Date)
+### Aniket
+- Completed: ...
+- In progress: ...
+- Blockers: ...
+
+### Sarghi
+- Completed: ...
+- In progress: ...
+- Blockers: ...

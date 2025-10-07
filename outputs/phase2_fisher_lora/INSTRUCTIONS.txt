@@ -1,0 +1,23 @@
+PHASE 2 FISHER-LORA OUTPUTS
+============================
+
+Owner: ANIKET
+
+Purpose: Store outputs from Fisher-Guided LoRA implementation
+
+What goes here:
+- models/           : Trained Fisher-LoRA checkpoint
+- fisher_matrices/  : Saved Fisher Information matrices (fisher_A.pt, fisher_B.pt)
+- results/          : fisher_lora_results.json (evaluation metrics)
+- logs/             : Training logs
+
+Expected outputs:
+- fisher_lora_results.json containing:
+  * General medicine accuracy + ECE
+  * Cardiology accuracy + ECE
+  * Forgetting metric
+  * Hyperparameters (lambda, beta)
+
+Who uses this:
+- Sarghi will import Fisher-LoRA as one method to compare in experiments
+- Fisher matrices will be reused if needed

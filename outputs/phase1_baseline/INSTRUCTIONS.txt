@@ -1,0 +1,21 @@
+PHASE 1 BASELINE OUTPUTS
+========================
+
+Owner: ANIKET
+
+Purpose: Store outputs from basic LoRA baseline training
+
+What goes here:
+- models/       : Trained baseline LoRA checkpoint
+- results/      : baseline_results.json (evaluation metrics)
+- logs/         : Training logs and console output
+
+Expected outputs:
+- baseline_results.json containing:
+  * Accuracy before/after training
+  * Forgetting metric
+  * Training configuration
+
+Who uses this:
+- Sarghi will read baseline_results.json to compare with other methods
+- Aniket will use this as foundation for Phase 2

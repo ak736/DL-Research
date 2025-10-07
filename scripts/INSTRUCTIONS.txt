@@ -1,0 +1,27 @@
+EXECUTABLE SCRIPTS
+==================
+
+Owner: ALL (as needed)
+
+Purpose: Convenient bash/shell scripts for common tasks
+
+Scripts to create:
+- setup_environment.sh   : Install dependencies
+- download_data.sh       : Download datasets
+- run_phase1.sh         : Run Phase 1 baseline
+- run_phase2.sh         : Run Phase 2 Fisher-LoRA
+- run_all_experiments.sh: Run all experiments
+
+Example script structure:
+#!/bin/bash
+echo "Running Phase 1 Baseline..."
+python src/phase1_baseline/train_baseline.py
+echo "Results saved to outputs/phase1_baseline/"
+
+When:
+- Create as needed
+- Makes it easy for team to run code
+
+Usage:
+chmod +x scripts/run_phase1.sh
+./scripts/run_phase1.sh

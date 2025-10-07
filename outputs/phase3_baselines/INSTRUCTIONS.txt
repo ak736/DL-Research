@@ -1,0 +1,21 @@
+PHASE 3 BASELINE COMPARISONS
+=============================
+
+Owner: SARGHI
+
+Purpose: Store outputs from all baseline method implementations
+
+What goes here:
+- standard_lora/    : Standard LoRA results
+- ewc_lora/         : EWC-LoRA results
+- i_lora/           : I-LoRA results
+- cur_lora/         : CURLoRA results (optional)
+- summary_comparison.csv : Quick comparison table
+
+Expected outputs in each subfolder:
+- model.pt          : Trained model
+- results.json      : Evaluation metrics (same format as Phase 1/2)
+
+Who uses this:
+- Sarghi will use these for Phase 4 final comparison
+- Charan will use for documentation/analysis

@@ -1,0 +1,24 @@
+PHASE 4 FINAL EXPERIMENTS & RESULTS
+====================================
+
+Owner: SARGHI
+
+Purpose: Store final comparison of all methods
+
+What goes here:
+- results/      : Comparison tables (CSV format)
+- figures/      : All plots (calibration, forgetting, etc.)
+- tables/       : LaTeX tables for paper
+
+Expected outputs:
+- all_methods_comparison.csv : Main results table
+- calibration_plot.png       : Calibration curves
+- forgetting_analysis.png    : Forgetting comparison
+- statistical_tests.json     : Significance tests
+
+Format for comparison CSV:
+method, gen_med_acc, gen_med_ece, card_acc, card_ece, forgetting
+
+Who uses this:
+- Charan will use for final paper/presentation
+- These are the MAIN results for the project
