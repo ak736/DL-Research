@@ -49,6 +49,7 @@ outputs/*/models/*
 outputs/*/logs/*
 outputs/*/fisher_matrices/*
 !outputs/*/.gitkeep
+outputs/test_model
 
 # Keep only final results
 !outputs/phase4_experiments/results/*.csv
@@ -61,3 +62,4 @@ wandb/
 *.log
 *.tmp
 .cache/
+data/*.json
