@@ -1,0 +1,48 @@
+# Fisher-Guided LoRA Configuration
+# Phase 2 - Meditron-7B (4-bit quantized)
+
+model:
+  name: "epfl-llm/meditron-7b"
+  quantization:
+    load_in_4bit: true
+    bnb_4bit_compute_dtype: "float16"
+    bnb_4bit_quant_type: "nf4"
+    bnb_4bit_use_double_quant: true
+  device: "mps"  # Metal Performance Shaders for Mac
+
+lora:
+  r: 8                # LoRA rank
+  lora_alpha: 16      # LoRA alpha
+  lora_dropout: 0.05
+  target_modules:
+    - "q_proj"
+    - "v_proj"
+    - "k_proj"
+    - "o_proj"
+
+fisher:
+  compute: true
+  num_samples: 800        # Use all general medicine train samples
+  lambda_fisher: 0.1      # Weight for Fisher regularization
+  diagonal_only: true     # Use diagonal approximation (faster)
+
+training:
+  learning_rate: 0.0002
+  num_epochs: 3
+  batch_size: 1           # Small for 8GB RAM
+  gradient_accumulation_steps: 4  # Effective batch size = 4
+  warmup_steps: 100
+  logging_steps: 10
+  save_steps: 100
+
+brier:
+  beta_brier: 0.5         # Weight for Brier score loss
+  
+evaluation:
+  batch_size: 1
+  
+output:
+  model_dir: "outputs/phase2_fisher_lora/models"
+  fisher_dir: "outputs/phase2_fisher_lora/fisher_matrices"
+  results_dir: "outputs/phase2_fisher_lora/results"
+  logs_dir: "outputs/phase2_fisher_lora/logs"
