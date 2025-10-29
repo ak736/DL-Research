@@ -1,0 +1,26 @@
+{
+  "before_training": {
+    "general_medicine": {
+      "accuracy": 0.4
+    },
+    "cardiology": {
+      "accuracy": 0.2
+    }
+  },
+  "after_training": {
+    "general_medicine": {
+      "accuracy": 0.4
+    },
+    "cardiology": {
+      "accuracy": 0.2
+    }
+  },
+  "forgetting": 0.0,
+  "metadata": {
+    "model_name": "gpt2",
+    "learning_rate": 0.0002,
+    "num_epochs": 1,
+    "batch_size": 2,
+    "timestamp": "2025-10-15T20:32:56.695843"
+  }
+}
