@@ -1,0 +1,39 @@
+{
+  "before_training": {
+    "general_medicine": {
+      "accuracy": 0.3684210526315789,
+      "ece": 0.4997476151115017,
+      "brier_score": 1.0742913059368766,
+      "num_samples": 19
+    },
+    "cardiology": {
+      "accuracy": 0.1,
+      "ece": 0.7339635372161866,
+      "brier_score": 1.439383466521989,
+      "num_samples": 10
+    }
+  },
+  "after_training": {
+    "general_medicine": {
+      "accuracy": 0.3684210526315789,
+      "ece": 0.36720735148379674,
+      "brier_score": 0.9304519844644717,
+      "num_samples": 19
+    },
+    "cardiology": {
+      "accuracy": 0.1,
+      "ece": 0.5578532516956329,
+      "brier_score": 1.1231625480155603,
+      "num_samples": 10
+    }
+  },
+  "forgetting": 0.0,
+  "cardiology_improvement": 0.0,
+  "metadata": {
+    "model_name": "gpt2",
+    "learning_rate": 0.0002,
+    "num_epochs": 3,
+    "batch_size": 4,
+    "timestamp": "2025-11-05T09:50:09.075140"
+  }
+}
