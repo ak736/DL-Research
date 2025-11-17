@@ -31,7 +31,8 @@ class LoRABaselineModel:
                  lora_r: int = 8,
                  lora_alpha: int = 16,
                  lora_dropout: float = 0.1,
-                 device: str = None):
+                 device: str = None,
+                 load_in_4bit: bool = False):
         """
         Initialize LoRA baseline model.
 
@@ -41,6 +42,7 @@ class LoRABaselineModel:
             lora_alpha: LoRA scaling factor
             lora_dropout: Dropout for LoRA layers
             device: Device to use (None = auto-detect)
+            load_in_4bit: Whether to use 4-bit quantization
         """
         self.model_name = model_name
         self.device = device or (
@@ -49,6 +51,7 @@ class LoRABaselineModel:
         print(f"🔧 Initializing LoRA Baseline Model")
         print(f"  Model: {model_name}")
         print(f"  Device: {self.device}")
+        print(f"  Quantization: {'4-bit' if load_in_4bit else 'None'}")
         print(
             f"  LoRA config: r={lora_r}, alpha={lora_alpha}, dropout={lora_dropout}")
 
@@ -60,22 +63,51 @@ class LoRABaselineModel:
         if self.tokenizer.pad_token is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
 
-        # Load base model
+        # Load base model with optional quantization
         print("📥 Loading base model...")
-        self.base_model = AutoModelForCausalLM.from_pretrained(
-            model_name,
-            torch_dtype=torch.float32,  # Use float32 for stability
-            device_map=None  # We'll move to device manually
-        )
+
+        if load_in_4bit:
+            from transformers import BitsAndBytesConfig
+
+            quantization_config = BitsAndBytesConfig(
+                load_in_4bit=True,
+                bnb_4bit_compute_dtype=torch.float16,
+                bnb_4bit_quant_type="nf4",
+                bnb_4bit_use_double_quant=True,
+            )
+
+            self.base_model = AutoModelForCausalLM.from_pretrained(
+                model_name,
+                quantization_config=quantization_config,
+                device_map="auto",
+                trust_remote_code=True
+            )
+        else:
+            self.base_model = AutoModelForCausalLM.from_pretrained(
+                model_name,
+                torch_dtype=torch.float32,
+                device_map=None
+            )
 
         # Configure LoRA
         print("🔗 Configuring LoRA adapters...")
+
+        # Determine target modules based on model type
+        if "meditron" in model_name.lower() or "llama" in model_name.lower():
+            target_modules = ["q_proj", "v_proj", "k_proj", "o_proj"]
+        elif "biogpt" in model_name.lower():
+            target_modules = ["q_proj", "v_proj"]  # BioGPT uses GPT-2 architecture
+        elif "gpt" in model_name.lower() and "biogpt" not in model_name.lower():
+            target_modules = ["c_attn"]  # Standard GPT-2
+        else:
+            target_modules = ["q_proj", "v_proj"]  # Default for most models
+
         lora_config = LoraConfig(
             task_type=TaskType.CAUSAL_LM,
             r=lora_r,
             lora_alpha=lora_alpha,
             lora_dropout=lora_dropout,
-            target_modules=["c_attn"],  # For GPT-2; adjust for other models
+            target_modules=target_modules,
             bias="none",
         )
 

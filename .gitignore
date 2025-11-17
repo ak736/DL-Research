@@ -50,6 +50,8 @@ outputs/*/logs/*
 outputs/*/fisher_matrices/*
 !outputs/*/.gitkeep
 outputs/test_model
+outputs/test_fisher_computation/*
+outputs/test_fisher_computation_real/*
 
 # Keep only final results
 !outputs/phase4_experiments/results/*.csv
