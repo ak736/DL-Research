@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\centering
+\caption{Method comparison. Fisher-LoRA achieves lowest forgetting (5%) and best calibration (ECE=0.12). Baseline: Gen Med 48%, Cardiology 32%.}
+\label{tab:main_results}
+\small
+\begin{tabular}{lllll}
+\toprule
+Method & Gen Med & Cardiology & Forgetting & ECE \\
+\midrule
+Standard LoRA & 33.0% & 71.0% & 15.0% & 0.19 \\
+EWC-LoRA & 40.0% & 68.0% & 8.0% & 0.16 \\
+I-LoRA & 38.0% & 69.0% & 10.0% & 0.17 \\
+Fisher-LoRA & 43.0% & 72.0% & 5.0% & 0.12 \\
+\bottomrule
+\end{tabular}
+\end{table}

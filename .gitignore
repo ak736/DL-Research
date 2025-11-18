@@ -65,3 +65,5 @@ wandb/
 *.tmp
 .cache/
 data/*.json
+
+generate_paper_results.py

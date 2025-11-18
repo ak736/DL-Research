@@ -1,0 +1,5 @@
+Method,Gen Med Acc,Cardiology Acc,Forgetting,ECE,Brier Score
+Standard LoRA,54.0%,88.0%,13.0%,0.150,0.380
+EWC-LoRA,60.0%,86.0%,7.0%,0.120,0.320
+I-LoRA,58.0%,87.0%,9.0%,0.130,0.340
+Fisher-LoRA,64.0%,91.0%,3.0%,0.070,0.290

@@ -1,0 +1,8 @@
+======================================================================
+BEFORE vs AFTER TRAINING
+======================================================================
+
+          Domain Before Training After (Standard) After (Fisher)
+General Medicine           67.0%            54.0%          64.0%
+      Cardiology           38.0%            88.0%          91.0%
+

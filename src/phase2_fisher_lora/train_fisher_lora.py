@@ -47,15 +47,15 @@ class FisherLoRATrainer:
     """
 
     def __init__(self,
-                 model_name: str = "microsoft/BioGPT-Large",
+                 model_name: str = "epfl-llm/meditron-7b",
                  lora_r: int = 8,
                  lora_alpha: int = 16,
                  lambda_fisher: float = 0.1,
                  beta_brier: float = 0.5,
                  learning_rate: float = 2e-4,
                  num_epochs: int = 3,
-                 batch_size: int = 2,
-                 load_in_4bit: bool = False,
+                 batch_size: int = 4,
+                 load_in_4bit: bool = True,
                  output_dir: str = "outputs/phase2_fisher_lora"):
         """
         Initialize Fisher-LoRA trainer.
@@ -518,8 +518,8 @@ def main():
         description="Train Fisher-Guided LoRA for medical domain adaptation"
     )
 
-    parser.add_argument('--model_name', type=str, default='microsoft/BioGPT-Large',
-                       help='Base model name (default: BioGPT-Large)')
+    parser.add_argument('--model_name', type=str, default='epfl-llm/meditron-7b',
+                       help='Base model name (default: Meditron-7B)')
     parser.add_argument('--lora_r', type=int, default=8,
                        help='LoRA rank')
     parser.add_argument('--lora_alpha', type=int, default=16,
@@ -532,10 +532,10 @@ def main():
                        help='Learning rate')
     parser.add_argument('--epochs', type=int, default=3,
                        help='Number of training epochs')
-    parser.add_argument('--batch_size', type=int, default=2,
-                       help='Batch size')
-    parser.add_argument('--load_in_4bit', action='store_true', default=False,
-                       help='Use 4-bit quantization (requires GPU)')
+    parser.add_argument('--batch_size', type=int, default=4,
+                       help='Batch size (can use 4+ with A100 GPU)')
+    parser.add_argument('--load_in_4bit', action='store_true', default=True,
+                       help='Use 4-bit quantization (default: True)')
     parser.add_argument('--output_dir', type=str, default='outputs/phase2_fisher_lora',
                        help='Output directory')
     parser.add_argument('--data_dir', type=str, default='data',

@@ -113,7 +113,16 @@ class LoRABaselineModel:
 
         # Apply LoRA to model
         self.model = get_peft_model(self.base_model, lora_config)
-        self.model.to(self.device)
+
+        # Only move to device if not using device_map="auto" (quantization)
+        if not load_in_4bit:
+            self.model.to(self.device)
+        else:
+            # Update device to match where model actually is
+            if hasattr(self.model, 'device'):
+                self.device = str(self.model.device)
+            elif torch.cuda.is_available():
+                self.device = 'cuda'
 
         # Print trainable parameters
         self._print_trainable_parameters()

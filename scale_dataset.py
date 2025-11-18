@@ -15,7 +15,7 @@ import json
 from pathlib import Path
 from datasets import load_dataset
 from tqdm import tqdm
-import random
+import randomab
 
 
 def load_current_samples():
